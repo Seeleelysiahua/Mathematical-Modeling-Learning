@@ -1,0 +1,33 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[梁明旭\
+  等(无日期)梁明旭，夏先飞，袁昌荣，吕俊潼，宫庆硕和贾磊]{NYGU20260610001}
+梁明旭，夏先飞，袁昌荣，等.
+\newblock
+  基于YOLO11n的芦笋采收机器人多目标分割与识别定位\allowbreak[J].
+\newblock 农业工程学报：1-10.
+
+\bibitem[王玉航(2024)]{1024493859.nh}
+王玉航.
+\newblock 文丘里气泡发生器实验与模拟研究\allowbreak[D].
+\newblock 东北电力大学，2024.
+
+\bibitem[《中国儿童肥胖的评估、治疗和预防指南》专家组\
+  等(2026)《中国儿童肥胖的评估、治疗和预防指南》专家组和中国妇幼健康研究会妇女儿童肥胖控制专业委员会]{QKYX202623001}
+《中国儿童肥胖的评估、治疗和预防指南》专家组，中国妇幼健康研究会妇女儿童肥胖控制专业委员会.
+\newblock
+  中国儿童肥胖的评估、治疗和预防指南（第二版）\allowbreak[J].
+\newblock 中国全科医学，2026，29\allowbreak （23）：3233-3252.
+
+\end{thebibliography}

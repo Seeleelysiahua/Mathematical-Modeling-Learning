@@ -1,0 +1,70 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: mainTemp.aux
+The style file: gbt7714-numeric.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated singl_function (elt_size=4) to 200 items from 150.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated singl_function (elt_size=4) to 200 items from 150.
+Reallocated singl_function (elt_size=4) to 250 items from 200.
+Reallocated singl_function (elt_size=4) to 300 items from 250.
+Reallocated singl_function (elt_size=4) to 350 items from 300.
+Reallocated wiz_functions (elt_size=4) to 12000 items from 9000.
+Database file #1: refences.bib
+Warning--empty year in NYGU20260610001
+Warning--empty year in NYGU20260610001
+You've used 3 entries,
+            9481 wiz_defined-function locations,
+            1749 strings with 15655 characters,
+and the built_in function-call counts, 149547 in all, are:
+= -- 13344
+> -- 4430
+< -- 1711
++ -- 4095
+- -- 3836
+* -- 10569
+:= -- 12431
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 14
+chr.to.int$ -- 1661
+cite$ -- 5
+duplicate$ -- 10770
+empty$ -- 11239
+format.name$ -- 63
+if$ -- 27668
+int.to.chr$ -- 5
+int.to.str$ -- 4
+missing$ -- 0
+newline$ -- 29
+num.names$ -- 9
+pop$ -- 1417
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 968
+stack$ -- 0
+substring$ -- 35248
+swap$ -- 8800
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 73
+warning$ -- 2
+while$ -- 1087
+width$ -- 0
+write$ -- 49
+(There were 2 warnings)

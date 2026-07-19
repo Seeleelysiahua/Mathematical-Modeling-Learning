@@ -1,0 +1,157 @@
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[section]{placeins}
+\usepackage[super,square,numbers,sort&compress]{natbib} 
+\bibliographystyle{gbt7714-numeric}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\lstset{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false
+}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\numberwithin{equation}{section}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\title{\textbf{论文题目}}
+\author{}
+\date{}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+    \LARGE \textbf{多导弹视角下烟幕最优投放策略}
+\end{center}
+\vspace{1em}
+
+\begin{abstract}
+无人机投放的烟幕弹能够在敌袭下为目标提供有效遮蔽，且投放策略直接影响遮蔽时长。本文以\textbf{可行域剪枝}为主线，构建多重掩护的\textbf{遮蔽最大化模型}；综合\textbf{二分搜索}、\textbf{粒子群算法}与\textbf{蒙特卡洛模拟}，按情形制定相应决策，最大化目标的有效遮蔽时间。
+
+问题一研究单无人机对单导弹的拦截。建立物体\textbf{运动轨迹方程}，采用\textbf{角覆盖}与\textbf{相位比较法}判断目标是否处于烟幕“视野盲区”，并通过\textbf{向量运算}简化判定过程。利用遮蔽时长随时间变化的\textbf{单峰性}，结合\textbf{变步长搜索}与\textbf{二分精确搜索}，求得 FY1 烟幕弹对 M1 的有效遮蔽时长为 1.406558s。
+
+问题二将无人机\textbf{航向}、\textbf{速度}、\textbf{投放时刻}与\textbf{起爆时刻}作为决策变量。数形推导有效遮挡必经区域以收缩航向，结合速度差异给出起爆时机间接约束，建立\textbf{最优时空规划模型}。利用\textbf{蒙特卡洛模拟}与\textbf{改进粒子群算法}，求得最长遮蔽时间为 4.717014s。
+
+问题三引入\textbf{单机多弹}，联合规划各弹时序。采用\textbf{导弹—目标连线穿越烟幕判定法}，结合\textbf{变步长搜索}求解多时段有效遮蔽时长，得到最长有效遮蔽时间为 6.403160s。
+
+问题四研究\textbf{多机单弹协同}。以导弹与目标中轴共面构建\textbf{有效遮蔽三角域}，推导无人机轨迹约束，建立\textbf{多机一弹协同分配模型}。采用\textbf{粒子群算法}求得最长遮蔽时间为 11.199225s。
+
+问题五考虑\textbf{多目标多导弹}。以各导弹视野均被隔绝作为有效遮蔽时刻，建立\textbf{多云团—多导弹调度模型}。使用\textbf{求解器}得到最优遮蔽时间为 12.402862s。
+
+综上，本文构建了从\textbf{定参评估}到\textbf{多目标多导弹}的递进式遮蔽最大化模型，形成可解释、可复现、可扩展的求解链路。。
+\end{abstract}
+\vspace{1em}
+
+\noindent\textbf{关键词：} 可行域剪枝策略 \quad  粒子群算法 \quad  二分搜索 \quad  变步长搜索
+
+\newpage
+\setcounter{page}{1}
+
+\section{问题重述}
+	\subsection{问题背景}
+烟幕干扰弹主通过化学燃烧或爆炸形成烟幕或气溶胶云团，于目标前方特定空域形 成遮蔽，以干扰敌方导弹，成本低且效费比高。该干扰弹可由无人机定点精确抛撒，并 通过时间引信时序控制起爆时间。即长续航无人机挂载干扰弹于特定空域巡飞，受领任 务后将其投放于来袭武器及保护目标间，形成烟幕遮蔽。每架无人机一次投放的两枚干 扰弹需间隔至少 1s，干扰弹脱离后受重力作用运动，并于起爆后瞬间形成以 3m/s 匀速 下沉的球状烟幕云团，其中心 10m 范围内在起爆后 20s 内可提供有效遮蔽。
+
+来袭导弹飞行速度为 300m/s，其飞行方向指向一用以掩护的假目标。以假目标 为原点，水平面为 xy 平面，真目标即为下底面圆心位于 (0,200,0)、半径 7m、高 10m 的圆柱体。来袭导弹被发现时，导弹 M1、M2、M3 分别位于 (20000,0,2000)、 (19000, 600, 2100)、(18000, −600, 1900);无人机 F Y 1 ∼ F Y 5 则分别位于 (17800, 0, 1800)、 (12000,1400,1400)、(6000,−3000,700)、(11000,2000,1800)、(13000,−2000,1300)。任务 下达后，无人机可瞬时调整航向，并以 70 ∼ 140m/s 的速度等高匀速直线飞行，同时， 各无人机的航向、速度可不相同且一旦确定便不可调整。不同干扰弹的遮蔽可不连续， 现需优化无人机航向、速度、干扰弹投放点及起爆点等投放策略，以最大化多枚干扰弹 对真目标的有效遮蔽时间。
+
+	\subsection{问题提出}
+问题一:无人机 F Y 1 以 120m/s 的速度朝假目标方向飞行，于受领任务 1.5s 后投 放一枚烟幕干扰弹，并于间隔 3.6s 后起爆。建立合适的数学模型计算该烟幕干扰弹对 导弹 M1 的有效遮蔽时长。
+
+问题二:建立合适的优化模型确定无人机 F Y 1 的飞行方向、飞行速度、干扰弹投 放点及起爆点位置，以最大化单枚烟幕干扰弹对导弹 M1 的遮蔽时长。
+
+问题三:制定无人机 FY1 连续投放三枚烟幕干扰弹对导弹 M1 的干扰策略，确 定各枚干扰弹的投放时刻、空间位置及起爆时序等参数，并将完整策略数据存入文件 result1.xlsx 中。
+
+问题四:在 F Y 1、F Y 2、F Y 3 三架无人机各自投放一枚烟幕干扰弹，共同对导弹 M1 实施干扰的前提下，设计干扰弹的整体投放策略，并将结果存入文件 result2.xlsx 中。
+
+问题五:利用全部的五架无人机对 M1、M2、M3 三枚来袭导弹实施协同干扰，在 每架至多投放三枚干扰弹的基础上，制定干扰弹的综合投放策略，并将结果存入文件 result3.xlsx 中。
+
+\section{问题分析}
+\begin{itemize}
+	\item \textbf{问题一的分析} \\
+    本问为定参评估，目的为在给定无人机飞行状态、干扰弹投放及起爆时间的前提下，计算单枚干扰弹对某导弹的有效遮蔽时长，且各参数皆已知：导弹按既定方向匀速飞向假目标，干扰弹起爆后瞬间形成云团并以恒定速度下沉，云团球心一定半径内在固定时间窗内具有有效遮蔽能力；本问中特别给定 FY1 速度、投放与起爆延迟时间。据此，先统一坐标与时间基准，确定导弹、无人机、干扰弹及云团的运动轨迹，并由几何推导得对各时刻导弹可见域的遮蔽判别；最后对遮蔽区间进行边界定位，从而得到有效时长。
+    
+	\item \textbf{问题二的分析} \\
+    在问题一单枚导弹的基础上，将无人机航向、速度、投放与起爆时刻作为决策变量，其目标为最大化有效遮蔽时长。为避免在连续-离散混合的大空间中盲目搜索，先基于导弹航向与目标轴线确定其必经区域，以此缩小航向扇区；再依据导弹到达真目标前必须完成起爆且处于有效遮蔽时间内的逻辑，形成时间可行窗，并对参数区间进行预剪枝。随后，在剪枝后的可行域内展开分层搜索：粗层面定位高价值区域，细层面沿时间轴对遮蔽区间的起止边界做高精度定位，从而返回最长遮蔽及其对应的最优航向、速度与时序。
+
+	\item \textbf{问题三的分析} \\
+    在问题二的求解模型框架上引入单无人机多干扰弹情况，对三枚干扰弹的联合投放进行合理规划。将总体遮蔽度量整合为时间轴上多个遮蔽片段的并集长度，并对多云团叠加导致的边界判断模糊，采用导弹与真目标连线是否穿过任一有效云团球体的等价判定以统一角覆盖。求解时，结合分层搜索与序列优化，在满足最小投放间隔等工程约束的同时，最大化并集时长。
+	
+	\item \textbf{问题四的分析} \\
+    问题四将问题三的单无人机多干扰弹模型扩展为多无人机单干扰弹模型，利用导弹与真目标中轴共面关系构造必要三角域，作为多机航向与路径的强几何先验：仅当各无人机轨迹与该域存在交会时，方可形成有效遮蔽，故可据此对航向做前置约束并完成可达性剪枝。随后建立分配与时序联合的优化模型：在保证各机参数一经确定即恒定的题面要求下，综合处理去冲突与互补，使三机各自贡献互不稀释的遮蔽片段，最终输出最优策略。
+	
+	 \item \textbf{问题五的分析} \\
+    问题五在问题四的多机基础上同时引入多干扰弹与多导弹，预实现多任务、多资源的联合调度。其总体思路为采用上层任务指派、下层时序优化的分层结构：上层在资源上限与唯一性约束下，为各导弹分配无人机与干扰弹，以并集或同步口径定义总体有效遮蔽；下层沿用前述遮蔽判定与边界定位，快速返回每条任务线的有效片段。为控制规模，上层可结合机会约束或样本近似处理，必要时通过列生成逐步扩充候选方案，最终形成指派与时序解。
+\end{itemize}
+
+
+
+\section{模型假设}
+结合本题实际\cite{NYGU20260610001}，为确保模型求解的准确性与合理性，本文需排除一些因素干扰，故提出以下假设：
+\begin{enumerate}
+    \item 假设理想力学情况，不考虑风阻和爆炸产生的冲击力等，仅考虑恒定重力作用\cite{1024493859.nh}；
+    \item 假设烟幕云团仅作竖直方向上的匀速下降运动，无水平方向运动；
+    \item 假设导弹始终朝向假目标作匀速直线运动；
+    \item 假设无人机与导弹为质点，无碰撞体积\cite{QKYX202623001}。
+\end{enumerate}
+
+
+\section{符号说明}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \setlength{\tabcolsep}{8pt}  % 适当减小列间距，以防太宽
+    \begin{tabular}{c c | c c | c c | c c}
+        \specialrule{1.2pt}{0pt}{0pt}
+        \multicolumn{2}{c|}{\textbf{无单位}} &
+        \multicolumn{2}{|c|}{\textbf{长度单位 (m)}} &
+        \multicolumn{2}{|c|}{\textbf{速度单位 (m/s)}} &
+        \multicolumn{2}{|c}{\textbf{时间单位 (s)}} \\
+        \hline
+        符号 & 说明 & 符号 & 说明 & 符号 & 说明 & 符号 & 说明 \\
+        \hline
+        $M_i(t)$     & 导弹位置     & $R$ & 真实目标半径 & $v_M$ & 导弹速度     & $t_{i,j}$  & 投放时间 \\
+        $F_j(t)$     & 无人机位置   & $r$ & 云团半径     & $v_c$ & 云团下降速度 & $\Delta T$ & 引信延时 \\
+        $C_{i,j}(t)$ & 云团中心位置 & $H$ & 真实目标高度 &       &              &            &          \\
+        \specialrule{1.2pt}{0pt}{0pt}
+    \end{tabular}
+\end{table}
+
+\section{模型的建立与求解}
+% 在正文中引用文献示例：
+% 某某方法被广泛采用~\cite{example1}，进一步分析可参见文献~\cite{example2}。
+
+\section{模型评价与改进}
+\section{参考文献}
+\bibliography{refences} 
+\section{附录}
+\subsection{核心代码}
+\begin{lstlisting}[language=Python, caption={主程序}]
+import numpy as np
+x = np.array([1, 2, 3])
+print(x.sum())
+\end{lstlisting}
+
+\end{document}
