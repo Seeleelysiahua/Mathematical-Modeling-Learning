@@ -1,0 +1,237 @@
+<mxfile host="app.diagrams.net" modified="2026-07-20T07:25:00.000Z" version="21.0.0" type="device">
+  <diagram id="greedy-flowchart" name="贪心算法流程图">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 标题 -->
+        <mxCell id="2" value="0-1背包货物运输问题 · 贪心算法执行流程" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="325" y="0" width="450" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 开始节点 (椭圆) - 居中 -->
+        <mxCell id="3" value="开始" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;fontStyle=1;fillColor=#4CAF50;fontColor=#FFFFFF;strokeColor=#388E3C;" vertex="1" parent="1">
+          <mxGeometry x="475" y="30" width="150" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- 输入节点 (矩形) - 居中 -->
+        <mxCell id="4" value="输入：10件货物的重量、利润&#xa;货车载重上限 = 30t" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#E3F2FD;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="325" y="110" width="450" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 计算性价比 (矩形) -->
+        <mxCell id="5" value="计算每件货物的&#xa;单位重量利润（性价比）= 利润 ÷ 重量" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#E3F2FD;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="325" y="180" width="450" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 排序 (矩形) -->
+        <mxCell id="6" value="按性价比从高到低排序&#xa;生成货物顺序列表" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#E3F2FD;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="325" y="250" width="450" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 初始化 (矩形) -->
+        <mxCell id="7" value="初始化：&#xa;累计重量 = 0 | 累计利润 = 0 | 选中集合 = ∅" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#FFF3E0;strokeColor=#FF9800;" vertex="1" parent="1">
+          <mxGeometry x="325" y="320" width="450" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断1：是否有未处理货物 (菱形) - 居中 -->
+        <mxCell id="8" value="遍历下一件货物&#xa;是否还有未处理货物？" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFF9C4;strokeColor=#F9A825;" vertex="1" parent="1">
+          <mxGeometry x="375" y="390" width="350" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- 取货物节点 (矩形) -->
+        <mxCell id="9" value="取当前货物 i&#xa;计算：累计重量 + 货物i重量" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#E3F2FD;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="325" y="490" width="450" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断2：容量是否足够 (菱形) -->
+        <mxCell id="10" value="累计重量 + 货物i重量&#xa;≤ 30t ？" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFF9C4;strokeColor=#F9A825;" vertex="1" parent="1">
+          <mxGeometry x="375" y="560" width="350" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- 选中货物 (矩形) -->
+        <mxCell id="11" value="选中货物 i&#xa;累计重量 += 货物i重量&#xa;累计利润 += 货物i利润" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#C8E6C9;strokeColor=#4CAF50;" vertex="1" parent="1">
+          <mxGeometry x="325" y="670" width="450" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- 跳过货物 (矩形) -->
+        <mxCell id="12" value="跳过货物 i（容量不足）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#FFCDD2;strokeColor=#F44336;" vertex="1" parent="1">
+          <mxGeometry x="325" y="750" width="450" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 输出节点 (矩形) -->
+        <mxCell id="13" value="输出：&#xa;选中货物清单、总重量、总利润" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="325" y="810" width="450" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 结束节点 (椭圆) -->
+        <mxCell id="14" value="结束" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;fontStyle=1;fillColor=#F44336;fontColor=#FFFFFF;strokeColor=#D32F2F;" vertex="1" parent="1">
+          <mxGeometry x="475" y="880" width="150" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：开始 -> 输入 -->
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：输入 -> 计算 -->
+        <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：计算 -> 排序 -->
+        <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：排序 -> 初始化 -->
+        <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：初始化 -> 判断1 -->
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：判断1 -> 取货物（是） -->
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：判断1 -> 输出（否，遍历完成） -->
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="8" target="13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="430"/>
+              <mxPoint x="100" y="835"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 连接线：取货物 -> 判断2 -->
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：判断2 -> 选中货物（是） -->
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：判断2 -> 跳过货物（否） -->
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="10" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：选中货物 -> 输出 -->
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="11" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：跳过货物 -> 输出 -->
+        <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：输出 -> 结束 -->
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 连接线：选中货物 -> 回到判断1（左侧循环） -->
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="700"/>
+              <mxPoint x="100" y="430"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 连接线：跳过货物 -> 回到判断1（左侧循环） -->
+        <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;endArrow=classic;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="12" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="325" y="770" as="sourcePoint"/>
+            <Array as="points">
+              <mxPoint x="100" y="770"/>
+              <mxPoint x="100" y="430"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 判断1 "是" 标签 - 在菱形下方 -->
+        <mxCell id="30" value="是" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#4CAF50;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="515" y="475" width="30" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断1 "否" 标签 - 左侧循环线 -->
+        <mxCell id="31" value="否" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#F44336;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="630" width="30" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断2 "是" 标签 -->
+        <mxCell id="32" value="是" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#4CAF50;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="515" y="655" width="30" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断2 "否" 标签 -->
+        <mxCell id="33" value="否" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#F44336;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="515" y="740" width="30" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 左侧循环标签：选中货物回路 -->
+        <mxCell id="34" value="循环" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="110" y="560" width="30" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 左侧循环标签：跳过货物回路 -->
+        <mxCell id="35" value="循环" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="110" y="680" width="30" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断1左侧"遍历完成"标签 -->
+        <mxCell id="36" value="遍历完成" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#F44336;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="620" width="50" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例标题 -->
+        <mxCell id="37" value="图例" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="100" width="40" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例：开始/结束 -->
+        <mxCell id="38" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=9;fillColor=#4CAF50;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="850" y="125" width="30" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例：处理步骤 -->
+        <mxCell id="39" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=9;fillColor=#E3F2FD;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="850" y="145" width="60" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例：判断条件 -->
+        <mxCell id="40" value="" style="rhombus;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFF9C4;strokeColor=#F9A825;" vertex="1" parent="1">
+          <mxGeometry x="850" y="165" width="35" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例标签：开始/结束 -->
+        <mxCell id="41" value="开始/结束" style="text;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="885" y="125" width="60" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例标签：处理步骤 -->
+        <mxCell id="42" value="处理步骤" style="text;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="885" y="145" width="60" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例标签：判断条件 -->
+        <mxCell id="43" value="判断条件" style="text;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="885" y="165" width="60" height="15" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
