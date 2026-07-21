@@ -1,0 +1,602 @@
+<mxfile host="app.diagrams.net" modified="2026-07-21T11:00:00.000Z" agent="Claude" version="21.0.0">
+  <diagram name="图1-城市航运网络拓扑图">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 图注 -->
+        <mxCell id="caption1" value="图1 六城市航运网络拓扑及单源最优路径示意图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="500" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 城市节点 - c1 (源点) -->
+        <mxCell id="city1" value="c₁&#xa;(起点)" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF6B6B;strokeColor=#CC0000;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="120" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 城市节点 - c2 -->
+        <mxCell id="city2" value="c₂" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#87CEEB;strokeColor=#4682B4;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="220" width="60" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 城市节点 - c3 -->
+        <mxCell id="city3" value="c₃" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#87CEEB;strokeColor=#4682B4;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="520" width="60" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 城市节点 - c4 -->
+        <mxCell id="city4" value="c₄" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#87CEEB;strokeColor=#4682B4;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="520" width="60" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 城市节点 - c5 -->
+        <mxCell id="city5" value="c₅" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#87CEEB;strokeColor=#4682B4;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="260" y="380" width="60" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 城市节点 - c6 (枢纽) -->
+        <mxCell id="city6" value="c₆&#xa;★枢纽" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFD700;strokeColor=#DAA520;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="420" y="220" width="70" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 普通航线（灰色虚线） ========== -->
+        <!-- c1到c2 (50) - 普通 -->
+        <mxCell id="e_c1c2" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="150" as="sourcePoint" />
+            <mxPoint x="1000" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c1c2" value="50" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="810" y="165" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c1到c4 (40) - 普通 -->
+        <mxCell id="e_c1c4" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="180" as="sourcePoint" />
+            <mxPoint x="640" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c1c4" value="40" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="655" y="340" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c2到c3 (15) - 普通 -->
+        <mxCell id="e_c2c3" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1030" y="270" as="sourcePoint" />
+            <mxPoint x="1030" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c2c3" value="15" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1045" y="385" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c2到c6 (25) - 最优中转边 -->
+        <mxCell id="e_c2c6_best" style="endArrow=none;html=1;strokeColor=#FF69B4;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="240" as="sourcePoint" />
+            <mxPoint x="1000" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c2c6" value="25" style="text;html=1;strokeColor=#CC0066;fillColor=#FFE4E1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="215" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c3到c4 (10) - 普通 -->
+        <mxCell id="e_c3c4" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="530" as="sourcePoint" />
+            <mxPoint x="700" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c3c4" value="10" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="830" y="550" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c3到c5 (20) - 普通 -->
+        <mxCell id="e_c3c5" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="550" as="sourcePoint" />
+            <mxPoint x="320" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c3c5" value="20" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="630" y="530" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c4到c5 (10) - 修正：原为100，改为10 -->
+        <mxCell id="e_c4c5" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="540" as="sourcePoint" />
+            <mxPoint x="320" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c4c5" value="10" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="500" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- c5到c6 (55) - 普通 -->
+        <mxCell id="e_c5c6" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="400" as="sourcePoint" />
+            <mxPoint x="420" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c5c6" value="55" style="text;html=1;strokeColor=#666666;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="315" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 最优路径（红色粗实线） ========== -->
+        <!-- c1→c6 (10) - 最优直达 -->
+        <mxCell id="e_c1c6_best" style="endArrow=none;html=1;strokeColor=#FF0000;strokeWidth=3" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="150" as="sourcePoint" />
+            <mxPoint x="420" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c1c6" value="10★" style="text;html=1;strokeColor=#FF0000;fillColor=#FFFF00;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="170" width="35" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- c6→c4 (25) - 最优中转 -->
+        <mxCell id="e_c4c6_best" style="endArrow=none;html=1;strokeColor=#FF0000;strokeWidth=3" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="260" as="sourcePoint" />
+            <mxPoint x="640" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c4c6" value="25★" style="text;html=1;strokeColor=#FF0000;fillColor=#FFFF00;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="530" y="380" width="35" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- c1→c5 (25) - 新增：最优直达路径 -->
+        <mxCell id="e_c1c5_best" style="endArrow=none;html=1;strokeColor=#FF0000;strokeWidth=3" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="160" as="sourcePoint" />
+            <mxPoint x="290" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w_c1c5" value="25★" style="text;html=1;strokeColor=#FF0000;fillColor=#FFFF00;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="250" width="35" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 最短路线汇总框 ========== -->
+        <mxCell id="result_box" value="【最短路线汇总】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F8FF;strokeColor=#4169E1;fontSize=13;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="300" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="result_content" value="c₁→c₂：35元  路线 c₁→c₆→c₂&#xa;─────────────────────────&#xa;c₁→c₃：45元  路线 c₁→c₅→c₃&#xa;─────────────────────────&#xa;c₁→c₄：35元  路线 c₁→c₆→c₄&#xa;─────────────────────────&#xa;c₁→c₅：25元  路线 c₁→c₅（直达）&#xa;─────────────────────────&#xa;c₁→c₆：10元  路线 c₁→c₆（直达）&#xa;─────────────────────────&#xa;★ c₆ 关键中转枢纽" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="280" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 图例 ========== -->
+        <mxCell id="legend" value="【图例】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F8F8;strokeColor=#333333;fontSize=12;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="300" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_start" value="起点" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF6B6B;strokeColor=#CC0000;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="50" y="630" width="45" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_normal" value="普通城市" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#87CEEB;strokeColor=#4682B4;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="50" y="680" width="45" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_hub" value="枢纽城市" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFD700;strokeColor=#DAA520;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="50" y="730" width="45" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_best" value="最优路径（红色粗实线）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="110" y="645" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_best_line" style="endArrow=none;html=1;strokeColor=#FF0000;strokeWidth=3" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="655" as="sourcePoint" />
+            <mxPoint x="210" y="655" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="leg_transfer" value="最优中转边（粉色细实线）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="110" y="695" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_transfer_line" style="endArrow=none;html=1;strokeColor=#FF69B4;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="705" as="sourcePoint" />
+            <mxPoint x="210" y="705" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="leg_normal_line" value="普通航线（灰色虚线）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="110" y="745" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_normal_line_edge" style="endArrow=none;html=1;strokeColor=#999999;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="755" as="sourcePoint" />
+            <mxPoint x="210" y="755" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram name="图2-Dijkstra迭代过程可视化">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 图注 -->
+        <mxCell id="caption2" value="图2 Dijkstra算法迭代过程可视化" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 第1轮 -->
+        <mxCell id="iter1_box" value="第1轮：选择 c₆ (dist=10)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE4E1;strokeColor=#FF6347;fontSize=14;fontStyle=1;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="380" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="iter1_content" value="【操作】&#xa;从 T={c₂,c₃,c₄,c₅} 中选择 dist 最小的节点&#xa;min(dist) = min(50,∞,40,25,10) = 10 → c₆&#xa;&#xa;【更新邻居】&#xa;• dist[c₂]: 50 → min(50, 10+25) = 35&#xa;• dist[c₄]: 40 → min(40, 10+25) = 35  ← 新增补全&#xa;• dist[c₅]: 25 → min(25, 10+55) = 25 (不变)&#xa;&#xa;【结果】S={c₁,c₆}, T={c₂,c₃,c₄,c₅}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="50" y="95" width="370" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 第2轮 -->
+        <mxCell id="iter2_box" value="第2轮：选择 c₅ (dist=25)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFACD;strokeColor=#FFD700;fontSize=14;fontStyle=1;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="460" y="70" width="380" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="iter2_content" value="【操作】&#xa;从 T={c₂,c₃,c₄} 中选择 dist 最小的节点&#xa;min(dist) = min(35,∞,35,25) = 25 → c₅&#xa;&#xa;【更新邻居】&#xa;• dist[c₃]: ∞ → min(∞, 25+20) = 45&#xa;• dist[c₄]: 35 → min(35, 25+10) = 35 (不变)&#xa;• dist[c₂]: 35 → min(35, 25+∞) = 35 (不变)&#xa;&#xa;【结果】S={c₁,c₅,c₆}, T={c₂,c₃,c₄}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="470" y="95" width="370" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 第3轮 -->
+        <mxCell id="iter3_box" value="第3轮：选择 c₂ (dist=35)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0FFFF;strokeColor=#00CED1;fontSize=14;fontStyle=1;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="880" y="70" width="460" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="iter3_content" value="【操作】&#xa;从 T={c₃,c₄} 中选择 dist 最小的节点&#xa;min(dist) = min(35,45,35) = 35&#xa;&#xa;【临时距离均为35，本次选取c₂加入永久集】&#xa;【c₄仍保留在临时集合T，下轮继续】&#xa;&#xa;【更新邻居】&#xa;• dist[c₃]: 45 → min(45, 35+15) = 45 (不变)&#xa;• dist[c₄]: 35 → min(35, 35+20) = 35 (不变)&#xa;&#xa;【结果】S={c₁,c₂,c₅,c₆}, T={c₃,c₄}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="890" y="95" width="440" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 第4轮 -->
+        <mxCell id="iter4_box" value="第4轮：选择 c₄ (dist=35)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6E6FA;strokeColor=#9370DB;fontSize=14;fontStyle=1;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="460" y="310" width="380" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="iter4_content" value="【操作】&#xa;从 T={c₃} 中选择 dist 最小的节点&#xa;min(dist) = min(45,35) = 35 → c₄&#xa;&#xa;【更新邻居】&#xa;• dist[c₃]: 45 → min(45, 35+10) = 45 (不变)&#xa;&#xa;【结果】S={c₁,c₂,c₄,c₅,c₆}, T={c₃}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="470" y="335" width="370" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 第5轮 -->
+        <mxCell id="iter5_box" value="第5轮：选择 c₃ (dist=45) - 算法结束" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#98FB98;strokeColor=#228B22;fontSize=14;fontStyle=1;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="40" y="310" width="380" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="iter5_content" value="【操作】&#xa;从 T={c₃} 中选择 dist 最小的节点&#xa;min(dist) = 45 → c₃&#xa;&#xa;【更新邻居】&#xa;无剩余 T 中邻居节点&#xa;&#xa;【结果】S={c₁,c₂,c₃,c₄,c₅,c₆}, T={}&#xa;算法结束！所有节点已确定最短距离" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="50" y="335" width="370" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头连接 -->
+        <mxCell id="arr1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF6347;strokeWidth=2;endArrow=classic" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="170" as="sourcePoint" />
+            <mxPoint x="460" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arr2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFD700;strokeWidth=2;endArrow=classic" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="170" as="sourcePoint" />
+            <mxPoint x="880" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arr3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#00CED1;strokeWidth=2;endArrow=classic" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1100" y="270" as="sourcePoint" />
+            <mxPoint x="650" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arr4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9370DB;strokeWidth=2;endArrow=classic" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="510" as="sourcePoint" />
+            <mxPoint x="420" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arr5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#228B22;strokeWidth=2;endArrow=classic" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="410" as="sourcePoint" />
+            <mxPoint x="650" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 最终结果 -->
+        <mxCell id="final_box" value="【最终结果】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F8FF;strokeColor=#4169E1;fontSize=15;fontStyle=1;arcSize=25" vertex="1" parent="1">
+          <mxGeometry x="460" y="550" width="880" height="380" as="geometry" />
+        </mxCell>
+
+        <!-- 三栏分区 -->
+        <mxCell id="final_dist_title" value="【最短距离】" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="570" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final_dist" value="dist[c₁]=0  dist[c₂]=35&#xa;dist[c₃]=45  dist[c₄]=35&#xa;dist[c₅]=25  dist[c₆]=10" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="470" y="595" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final_prev_title" value="【前驱节点】" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="570" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final_prev" value="prev[c₁]=-  prev[c₂]=c₆&#xa;prev[c₃]=c₅  prev[c₄]=c₆&#xa;prev[c₅]=c₁  prev[c₆]=c₁" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="720" y="595" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final_path_title" value="【回溯路线】" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="970" y="570" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final_path" value="c₂: c₁→c₆→c₂ (35元)&#xa;c₃: c₁→c₅→c₃ (45元)&#xa;c₄: c₁→c₆→c₄ (35元)&#xa;c₅: c₁→c₅ (25元)&#xa;c₆: c₁→c₆ (10元)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="970" y="595" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- 分隔线 -->
+        <mxCell id="sep1" style="endArrow=none;html=1;strokeColor=#CCCCCC;strokeWidth=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="560" as="sourcePoint" />
+            <mxPoint x="700" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="sep2" style="endArrow=none;html=1;strokeColor=#CCCCCC;strokeWidth=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="560" as="sourcePoint" />
+            <mxPoint x="950" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram name="图3-Dijkstra执行流程图">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 图注 -->
+        <mxCell id="caption3" value="图3 Dijkstra单源最短路径算法执行流程图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="450" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 开始节点 -->
+        <mxCell id="start" value="开始" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#00FF00;strokeColor=#008000;fontStyle=1;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 初始化框 -->
+        <mxCell id="init_box" value="【初始化】&#xa;S = {c₁}&#xa;T = {c₂,c₃,c₄,c₅,c₆}&#xa;dist[c₁] = 0&#xa;dist[其他] = ∞&#xa;prev[其他] = NULL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F3FF;strokeColor=#4A90D9;fontSize=11;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="200" y="150" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 判断框 T是否为空? -->
+        <mxCell id="cond1" value="T是否为空?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF9900;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="230" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 是：指向结束 -->
+        <mxCell id="yes_label" value="是" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="360" y="290" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 选择最小节点 -->
+        <mxCell id="select_box" value="从T中选择dist最小的节点u" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F3FF;strokeColor=#4A90D9;fontSize=11;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="200" y="390" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 更新集合S -->
+        <mxCell id="update_s" value="将u从T移至S&#xa;S = S ∪ {u}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6FFE6;strokeColor=#00AA00;fontSize=11;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="200" y="465" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 松弛更新 -->
+        <mxCell id="relax_box" value="对u的每个邻居v∈T:&#xa;若 dist[v] > dist[u] + C[u][v]&#xa;    则 dist[v] = dist[u] + C[u][v]&#xa;    并 prev[v] = u" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E6;strokeColor=#FF6600;fontSize=10;arcSize=20" vertex="1" parent="1">
+          <mxGeometry x="180" y="540" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- 结束节点 -->
+        <mxCell id="end_box" value="输出dist[]和prev[]&#xa;（算法结束）" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF6B6B;strokeColor=#CC0000;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="400" y="290" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 连接线 -->
+        <mxCell id="e_start_init" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2" edge="1" parent="1" source="start" target="init_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_init_cond" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2" edge="1" parent="1" source="init_box" target="cond1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 否：指向选择节点 -->
+        <mxCell id="no_label" value="否" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="290" y="365" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_cond_select" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2" edge="1" parent="1" source="cond1" target="select_box">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 是：指向结束 -->
+        <mxCell id="e_cond_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2" edge="1" parent="1" source="cond1" target="end_box">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_select_update" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2" edge="1" parent="1" source="select_box" target="update_s">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_update_relax" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2" edge="1" parent="1" source="update_s" target="relax_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 循环回流箭头：从relax回到cond -->
+        <mxCell id="e_relax_loop" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;strokeWidth=2;endArrow=classic;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="585" as="sourcePoint" />
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="loop_back_label" value="循环回流" style="text;html=1;strokeColor=#FF0000;fillColor=#FFE4E1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="405" y="440" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ★标记说明 -->
+        <mxCell id="star_note" value="★ = 本轮纳入永久集合S的节点" style="text;html=1;strokeColor=#666666;fillColor=#FFFFCC;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="450" y="580" width="200" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 右侧：各轮迭代状态表 ========== -->
+        <mxCell id="state_header" value="【各轮迭代状态表】" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="620" y="70" width="200" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- 第0轮状态 -->
+        <mxCell id="r0_box" value="第0轮（初始化）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#666666;fontSize=11;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="500" y="110" width="850" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r0_content" value="S={c₁}  T={c₂,c₃,c₄,c₅,c₆}  ★选择c₁加入S（源点）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="115" width="830" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r0_table" value="dist:  c₁=✓0  |  c₂=50  |  c₃=∞  |  c₄=40  |  c₅=25  |  c₆=10&#xa;prev:   c₁=-   |  c₂=c₁  |  c₃=-   |  c₄=c₁  |  c₅=c₁  |  c₆=c₁&#xa;状态:   S     |  T     |  T     |  T     |  T     |  T" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="510" y="140" width="830" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 第1轮状态 -->
+        <mxCell id="r1_box" value="第1轮 ★c₆=10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE4E1;strokeColor=#FF6347;fontSize=11;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="500" y="210" width="850" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r1_content" value="S={c₁,c₆}  T={c₂,c₃,c₄,c₅}  ★本轮纳入c₆（dist最小）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="215" width="830" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r1_table" value="dist:  c₁=✓0  |  c₂=✓35↑|  c₃=∞   |  c₄=✓35↑|  c₅=25  |  c₆=✓10★&#xa;prev:   c₁=-   |  c₂=c₆  |  c₃=-   |  c₄=c₆  |  c₅=c₁  |  c₆=c₁&#xa;状态:   S     |  S     |  T     |  S     |  T     |  S" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="510" y="240" width="830" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 第2轮状态 -->
+        <mxCell id="r2_box" value="第2轮 ★c₅=25" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFACD;strokeColor=#FFD700;fontSize=11;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="500" y="310" width="850" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r2_content" value="S={c₁,c₅,c₆}  T={c₂,c₃,c₄}  ★本轮纳入c₅（dist最小）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="315" width="830" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r2_table" value="dist:  c₁=✓0  |  c₂=✓35 |  c₃=✓45↑|  c₄=✓35 |  c₅=✓25★|  c₆=✓10&#xa;prev:   c₁=-   |  c₂=c₆  |  c₃=c₅  |  c₄=c₆  |  c₅=c₁  |  c₆=c₁&#xa;状态:   S     |  S     |  S     |  S     |  S     |  S" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="510" y="340" width="830" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 第3轮状态 -->
+        <mxCell id="r3_box" value="第3轮 ★c₂=35" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0FFFF;strokeColor=#00CED1;fontSize=11;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="500" y="410" width="850" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r3_content" value="S={c₁,c₂,c₅,c₆}  T={c₃,c₄}  ★本轮纳入c₂（c₄同距离，待下轮）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="415" width="830" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r3_table" value="dist:  c₁=✓0  |  c₂=✓35★|  c₃=✓45 |  c₄=✓35 |  c₅=✓25 |  c₆=✓10&#xa;prev:   c₁=-   |  c₂=c₆  |  c₃=c₅  |  c₄=c₆  |  c₅=c₁  |  c₆=c₁&#xa;状态:   S     |  S     |  T     |  T     |  S     |  S" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="510" y="440" width="830" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 第4轮状态 -->
+        <mxCell id="r4_box" value="第4轮 ★c₄=35" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6E6FA;strokeColor=#9370DB;fontSize=11;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="500" y="510" width="850" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r4_content" value="S={c₁,c₂,c₄,c₅,c₆}  T={c₃}  ★本轮纳入c₄" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="515" width="830" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r4_table" value="dist:  c₁=✓0  |  c₂=✓35 |  c₃=✓45 |  c₄=✓35★|  c₅=✓25 |  c₆=✓10&#xa;prev:   c₁=-   |  c₂=c₆  |  c₃=c₅  |  c₄=c₆  |  c₅=c₁  |  c₆=c₁&#xa;状态:   S     |  S     |  T     |  S     |  S     |  S" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="510" y="540" width="830" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 第5轮状态 -->
+        <mxCell id="r5_box" value="第5轮 ★c₃=45 - 算法结束" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#98FB98;strokeColor=#228B22;fontSize=11;fontStyle=1;arcSize=15" vertex="1" parent="1">
+          <mxGeometry x="500" y="610" width="850" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r5_content" value="S={c₁,c₂,c₃,c₄,c₅,c₆}  T={}  ★算法结束" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="615" width="830" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r5_table" value="dist:  c₁=✓0  |  c₂=✓35 |  c₃=✓45★|  c₄=✓35 |  c₅=✓25 |  c₆=✓10&#xa;prev:   c₁=-   |  c₂=c₆  |  c₃=c₅  |  c₄=c₆  |  c₅=c₁  |  c₆=c₁&#xa;状态:   S     |  S     |  S     |  S     |  S     |  S" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="510" y="640" width="830" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 虚线指引 -->
+        <mxCell id="guide1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9999FF;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="150" as="sourcePoint" />
+            <mxPoint x="500" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="guide2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9999FF;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="200" as="sourcePoint" />
+            <mxPoint x="500" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="guide3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9999FF;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="270" as="sourcePoint" />
+            <mxPoint x="500" y="355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="guide4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9999FF;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="340" as="sourcePoint" />
+            <mxPoint x="500" y="455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="guide5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9999FF;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="410" as="sourcePoint" />
+            <mxPoint x="500" y="555" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="guide6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9999FF;strokeWidth=1;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="480" as="sourcePoint" />
+            <mxPoint x="500" y="655" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
